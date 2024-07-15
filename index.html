@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notitas | Planner para aumentar tu productividad</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="dashboard">
+        <div class="dashboard-sidebar">
+            <div class="dashboard-sidebar__brand">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/planner_dashboard_logo.svg" alt="Brand">
+            </div>
+            <nav class="dashboard-nav">
+                <ul>
+                    <li class="dashboard-nav__item dashboard-nav__item--selected">
+                        <a href="my_notes">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/planner_dashboard_home.svg"
+                                alt="Mis notas">
+                            Mis Notas
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="dashboard-content">
+            <header class="dashboard-header">
+                <div class="dashboard-header__search">
+                    <input type="text" placeholder="Añadir nota">
+                </div>
+                <div class="dashboard-header__new" id="add-note-btn">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/planner_dashboard_new_plan.svg"
+                        alt="New Plan">
+                </div>
+            </header>
+            <div class="dashboard-content__panel dashboard-content__panel--active" data-panel-id="my_notes">
+                <div class="dashboard-list" id="notes-list">
+                    <!-- Notas aquí -->
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-preview">
+            <div class="dashboard-preview__header">
+                <h2>Mis Tareas <button id="add-task-btn" class="task-add-btn">+</button></h2>
+            </div>
+            <div class="dashboard-preview__content">
+                <section id="tasks-section">
+                    <div id="tasks">
+                        <label>
+                            <button class="delete-task-btn">-</button>
+                            <input type="checkbox">
+                            <span>Preparar la grabadora de sonido</span>
+                        </label>
+                        <label>
+                            <button class="delete-task-btn">-</button>
+                            <input type="checkbox">
+                            <span>Reservar un restaurante</span>
+                        </label>
+                        <label>
+                            <button class="delete-task-btn">-</button>
+                            <input type="checkbox">
+                            <span>Reservar 24 habitaciones de hotel</span>
+                        </label>
+                    </div>
+                </section>
+                <section>
+                    <h2>Progreso <span id="progress-text">(0%)</span></h2>
+                    <div class="progress-bar">
+                        <div class="progress-bar__bar" style="width: 0%;" id="progress-bar"></div>
+                        <div class="progress-bar__badge" style="left: 0%;" id="progress-badge">0%</div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+
+</html>
