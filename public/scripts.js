@@ -1,17 +1,3 @@
-const express = require('express')
-const app = express()
-const port = 3000
-
-app.use(express.static(__dirname + '/static'));
-
-app.get('/a', (req, res) => {
-    res.send('Hello World!')
-})
-
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
-})
-
 document.addEventListener('DOMContentLoaded', () => {
     // Manejador de Notas
     document.querySelectorAll('.dashboard-nav__item').forEach(item => {
