@@ -6,6 +6,11 @@ body {
     font-size: 0.75rem;
     font-weight: 400;
     line-height: 0.875rem;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .dashboard {
@@ -71,6 +76,7 @@ body {
 .dashboard-content {
     width: 100%;
     border-right: 0.0625rem solid rgba(242, 242, 242, 0.3);
+    overflow: auto;
 }
 
 .dashboard-content__panel {
@@ -160,9 +166,7 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(255, 255, 255, 0.3);
-    /* White overlay with 30% opacity */
     backdrop-filter: blur(8px);
-    /* Apply 80% blur */
     z-index: -1;
 }
 
@@ -175,19 +179,45 @@ body {
 }
 
 .dashboard-preview__header {
-    margin: 0 0 9.5rem;
+    margin: 0 0 0rem;
     padding: 1.6875rem 1.8125rem;
     color: #000;
 }
 
-.dashboard-preview__header h2 {
-    font-size: 0.875rem;
-    line-height: 1.0625rem;
+.task-delete-btn {
+    border: none;
+    color: rgb(255, 0, 0);
+    width: 1rem;
+    height: 1rem;
+    font-size: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    cursor: pointer;
+    display: none
+}
+
+.dashboard-preview__header h2 .task-add-btn {
+    margin-left: 0.5rem;
 }
 
 .dashboard-preview__header h3 {
     font-size: 2.25rem;
     line-height: 2.875rem;
+}
+
+.dashboard-preview__header h2 {
+    font-size: 0.875rem;
+    line-height: 1.0625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25rem;
+    align-items: center;
+    font-weight: 400;
+    color: #5F6876;
+    margin-bottom: 0%;
+}
+
+label:hover .task-delete-btn {
+    display: inline;
 }
 
 .dashboard-preview__header h3 span {
@@ -224,10 +254,6 @@ body {
     align-items: center;
     margin: 1.0625rem 0 0 0;
     color: #5F6876;
-}
-
-.dashboard-preview__content label:first-child {
-    margin: 2.5rem 0 0 0;
 }
 
 .dashboard-preview__content label input {
@@ -304,6 +330,20 @@ body {
     border-radius: 50%;
     width: 1.5rem;
     height: 1.5rem;
+    cursor: pointer;
+}
+
+/* Estilo del botón + de añadir tarea */
+.task-add-btn {
+    background: #8FC6C3;
+    border: none;
+    color: white;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1.5rem;
+    line-height: 1rem;
+    text-align: center;
     cursor: pointer;
 }
 

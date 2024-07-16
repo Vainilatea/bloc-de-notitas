@@ -18,8 +18,6 @@
                 <ul>
                     <li class="dashboard-nav__item dashboard-nav__item--selected">
                         <a href="my_notes">
-                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/planner_dashboard_home.svg"
-                                alt="Mis notas">
                             Mis Notas
                         </a>
                     </li>
@@ -29,7 +27,7 @@
         <div class="dashboard-content">
             <header class="dashboard-header">
                 <div class="dashboard-header__search">
-                    <input type="text" placeholder="Añadir nota">
+                    <input type="text" placeholder="Añadir nota" readonly>
                 </div>
                 <div class="dashboard-header__new" id="add-note-btn">
                     <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/planner_dashboard_new_plan.svg"
@@ -50,19 +48,19 @@
                 <section id="tasks-section">
                     <div id="tasks">
                         <label>
-                            <button class="delete-task-btn">-</button>
                             <input type="checkbox">
                             <span>Preparar la grabadora de sonido</span>
+                            <button class="task-delete-btn">-</button>
                         </label>
                         <label>
-                            <button class="delete-task-btn">-</button>
                             <input type="checkbox">
                             <span>Reservar un restaurante</span>
+                            <button class="task-delete-btn">-</button>
                         </label>
                         <label>
-                            <button class="delete-task-btn">-</button>
                             <input type="checkbox">
                             <span>Reservar 24 habitaciones de hotel</span>
+                            <button class="task-delete-btn">-</button>
                         </label>
                     </div>
                 </section>

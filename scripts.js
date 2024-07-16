@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Manejador de Notas
     document.querySelectorAll('.dashboard-nav__item').forEach(item => {
         item.addEventListener('click', (e) => {
             e.preventDefault();
@@ -61,50 +62,88 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('notes-list').appendChild(note);
     });
 
-    document.getElementById('add-task-btn').addEventListener('click', () => {
-        const taskLabel = document.createElement('label');
+    // Manejador de Tareas
+    const tasks = document.getElementById("tasks");
+    const addTaskBtn = document.getElementById("add-task-btn");
+    const progressText = document.getElementById("progress-text");
+    const progressBar = document.getElementById("progress-bar");
+    const progressBadge = document.getElementById("progress-badge");
 
-        const deleteBtn = document.createElement('button');
-        deleteBtn.classList.add('delete-task-btn');
-        deleteBtn.textContent = '-';
-        deleteBtn.addEventListener('click', () => {
-            taskLabel.remove();
-            updateProgress();
-        });
-
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.addEventListener('change', updateProgress);
-
-        const span = document.createElement('span');
-        span.textContent = 'Nueva tarea';
-
-        taskLabel.appendChild(deleteBtn);
-        taskLabel.appendChild(checkbox);
-        taskLabel.appendChild(span);
-        document.getElementById('tasks').appendChild(taskLabel);
-    });
-
+    // Función para actualizar el progreso
     function updateProgress() {
-        const tasks = document.querySelectorAll('#tasks input[type="checkbox"]');
-        const completedTasks = document.querySelectorAll('#tasks input[type="checkbox"]:checked');
+        const checkboxes = tasks.querySelectorAll("input[type='checkbox']");
+        const checked = tasks.querySelectorAll("input[type='checkbox']:checked").length;
+        const total = checkboxes.length;
+        const percentage = total > 0 ? Math.round((checked / total) * 100) : 0;
 
-        const progress = tasks.length === 0 ? 0 : (completedTasks.length / tasks.length) * 100;
-
-        document.getElementById('progress-bar').style.width = progress + '%';
-        document.getElementById('progress-badge').style.left = progress + '%';
-        document.getElementById('progress-badge').textContent = Math.round(progress) + '%';
-        document.getElementById('progress-text').textContent = '(' + Math.round(progress) + '%)';
+        progressText.textContent = `(${percentage}%)`;
+        progressBar.style.width = `${percentage}%`;
+        progressBadge.style.left = `calc(${percentage}% - 1.5625rem)`;
+        progressBadge.textContent = `${percentage}%`;
     }
 
-    document.querySelectorAll('.delete-task-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            btn.parentElement.remove();
+    // Función para eliminar una tarea
+    function deleteTask(event) {
+        if (event.target.classList.contains("task-delete-btn")) {
+            const label = event.target.parentNode;
+            tasks.removeChild(label);
             updateProgress();
-        });
+        }
+    }
+
+    // Función para editar una tarea
+    function editTask(event) {
+        if (event.target.tagName === "SPAN") {
+            const span = event.target;
+            const currentText = span.textContent;
+            const input = document.createElement("input");
+            input.type = "text";
+            input.value = currentText;
+            input.classList.add("task-edit-input");
+
+            input.addEventListener("blur", () => {
+                span.textContent = input.value;
+                span.style.display = "inline";
+                input.remove();
+            });
+
+            input.addEventListener("keypress", (e) => {
+                if (e.key === "Enter") {
+                    input.blur();
+                }
+            });
+
+            span.style.display = "none";
+            span.parentNode.insertBefore(input, span.nextSibling);
+            input.focus();
+        }
+    }
+
+    // Event listener para añadir una nueva tarea
+    addTaskBtn.addEventListener("click", () => {
+        const label = document.createElement("label");
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+
+        const span = document.createElement("span");
+        span.textContent = "Nueva tarea";
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.className = "task-delete-btn";
+        deleteBtn.textContent = "-";
+
+        label.appendChild(checkbox);
+        label.appendChild(span);
+        label.appendChild(deleteBtn);
+        tasks.appendChild(label);
+
+        updateProgress();
     });
 
-    document.querySelectorAll('#tasks input[type="checkbox"]').forEach(checkbox => {
-        checkbox.addEventListener('change', updateProgress);
-    });
+    tasks.addEventListener("change", updateProgress);
+    tasks.addEventListener("click", deleteTask);
+    tasks.addEventListener("dblclick", editTask);
+
+    updateProgress();
 });
