@@ -1,0 +1,19 @@
+{
+  "name": "planner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vainilatea/bloc-de-notitas.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Vainilatea/bloc-de-notitas/issues"
+  },
+  "homepage": "https://github.com/Vainilatea/bloc-de-notitas#readme"
+}
