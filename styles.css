@@ -27,6 +27,14 @@ body {
     position: relative;
 }
 
+#logo-img {
+    max-width: 125px;
+    /* Limita el ancho máximo a 100px */
+    border-radius: 50%;
+    /* Hace que la imagen sea circular */
+    overflow: hidden;
+}
+
 .dashboard::before {
     content: '';
     position: absolute;
