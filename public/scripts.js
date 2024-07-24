@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const title = document.createElement('textarea');
         title.classList.add('note__title');
-        title.placeholder = 'Título';
+        
 
         const content = document.createElement('textarea');
         content.classList.add('note__content');
