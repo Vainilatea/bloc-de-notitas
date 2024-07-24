@@ -3,18 +3,16 @@ let mysql = require('mysql');
 let conexion = mysql.createConnection({
   host: "127.0.0.1",
   user: "root",
-  password: "12345",
-  database: "mysqlNotas"
+  password: "krono",
+  database: "proyecto_notas"
 });
 
-conexion.connect(function(err){
-  if(err){
+conexion.connect(function (err) {
+  if (err) {
     throw err;
-  }else{
+  } else {
     console.log("conexion exitosa");
   }
 });
 
 conexion.end();
-
-
