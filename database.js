@@ -40,12 +40,12 @@ con.connect(function (err) {
   // const notaEnBase = obtenDelConector.getNotesValues();
   const sql = `INSERT INTO nota (user_id, nota) VALUES ('1', '${notaEnBase[0]}');`
 
-con.query(sql, function (err, result, fields) {
-  if (err) throw err;
-});
+  con.query(sql, function (err, result, fields) {
+    if (err) throw err;
+  });
 
-con.end();
-}); 
+  con.end();
+});
 
 /*function insertarNotaEnBase() {
 for (i in notaEnBase) {
