@@ -1,8 +1,8 @@
 let mysql = require('mysql');
 
 let con = mysql.createConnection({
-  host: "127.0.0.1",
-  user: "root",
+  host: "192.168.1.224",
+  user: "Muscardina",
   password: "krono",
   database: "proyecto_notas"
 });
@@ -39,9 +39,11 @@ con.connect(function (err) {
     throw err;
   }
 
-  const patata = 'Potaterias'
+  //Esta constante es la notita en si miau.
+  const patata = 'Purrrmorromiau'
 
-  const sql = `INSERT INTO nota (user_id, nota) VALUES ('1', '${patata}');`
+  //Esta constante introduce datos a la tabla.
+  const sql = `INSERT INTO nota (user_id, nota) VALUES ('2', '${patata}');`
 
   con.query(sql, function (err, result, fields) {
     if (err) throw err;
