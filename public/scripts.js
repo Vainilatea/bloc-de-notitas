@@ -36,10 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const note = document.createElement('div');
         note.classList.add('note');
 
-        const title = document.createElement('textarea');
-        title.classList.add('note__title');
-        
-
         const content = document.createElement('textarea');
         content.classList.add('note__content');
         content.placeholder = 'Escribe tu nota aquí...';
@@ -54,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
         dateString.classList.add('note__date');
         dateString.textContent = date.toLocaleString();
 
-        note.appendChild(title);
         note.appendChild(content);
         note.appendChild(deleteBtn);
         note.appendChild(dateString);
