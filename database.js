@@ -1,7 +1,7 @@
-let mysql = require('mysql');
+const mysql = require('mysql');
 
 let con = mysql.createConnection({
-  host: "127.0.0.1",
+  host: "192.168.1.224",
   user: "root",
   password: "krono",
   database: "proyecto_notas"
@@ -33,19 +33,20 @@ con.connect(function (err) {
 }); 
 */
 
-
 con.connect(function (err) {
   if (err) {
     throw err;
   }
+  // const notaEnBase = obtenDelConector.getNotesValues();
+  const sql = `INSERT INTO nota (user_id, nota) VALUES ('1', '${notaEnBase[0]}');`
 
-  const patata = 'Potaterias'
+con.query(sql, function (err, result, fields) {
+  if (err) throw err;
+});
 
-  const sql = `INSERT INTO nota (user_id, nota) VALUES ('1', '${patata}');`
-
-  con.query(sql, function (err, result, fields) {
-    if (err) throw err;
-  });
-
-  con.end();
+con.end();
 }); 
+
+/*function insertarNotaEnBase() {
+for (i in notaEnBase) {
+  const sql = `INSERT INTO nota (user_id, nota) VALUES ('${i}', '${notaEnBase[i]}');`*/
