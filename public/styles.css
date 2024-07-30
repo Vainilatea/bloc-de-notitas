@@ -318,6 +318,7 @@ label:hover .task-delete-btn {
     transform: translate(-50%, 0%);
 }
 
+
 .note {
     position: relative;
     margin: 1rem 0;
@@ -342,7 +343,7 @@ label:hover .task-delete-btn {
 }
 
 /* Estilo del botón + de añadir tarea */
-.task-add-btn {
+.{
     background: #8FC6C3;
     border: none;
     color: white;
@@ -369,3 +370,4 @@ label:hover .task-delete-btn {
     color: #AAA;
     font-size: 0.75rem;
 }
+
