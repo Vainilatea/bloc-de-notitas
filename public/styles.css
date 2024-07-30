@@ -370,3 +370,20 @@ label:hover .task-delete-btn {
     color: #AAA;
     font-size: 0.75rem;
 }
+
+.btncillo {
+    padding: 10px 20px;
+    background-color: #8FC6C3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btncillo:hover {
+    background-color: #a5dfdc;
+}
+
+.btncillo:active {
+    background-color: #79adaa;
+}
