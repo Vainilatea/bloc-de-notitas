@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const content = document.createElement('textarea');
         content.classList.add('note__content');
         //content.onkeyup = "postAjax('/guardar-nota', 'caramelo')"
-        content.setAttribute('onkeyup', "postAjax('/guardar-nota', 'datos=caramelo')");
+        content.setAttribute('onkeyup', "postAjax('/guardar-nota', 'nota=caramelo')");
         content.placeholder = 'Escribe tu nota aquí...';
         const deleteBtn = document.createElement('button');
         deleteBtn.classList.add('note__delete');

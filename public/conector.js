@@ -34,19 +34,18 @@ function showCustomer(str) {
     xhttp.open("POST", "guardar-nota?q=" + str);
     xhttp.send();
 }
-  
+
 
 function postAjax(url, data, success) {
-    var params = typeof data == 'string' ? data : Object.keys(data).map(
-            function(k){ return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]) }
-        ).join('&');
+    var params = typeof data == 'string' ? data : Object.keys(data).map((k) => {
+            return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
+        }).join('&');
 
-    var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+    var xhr = new window.XMLHttpRequest();
     xhr.open('POST', url);
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
         if (xhr.readyState > 3 && xhr.status == 200) {
-            // success(xhr.responseText);
-            console.log(xhr.responseText)
+            success(xhr.responseText);
         }
     };
     xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
@@ -55,3 +54,9 @@ function postAjax(url, data, success) {
     
     return xhr;
 }
+
+function onPostSuccess(response) { 
+    console.log(response)
+}
+
+postAjax('/guardar-nota', {nota: "deadpool & Perry Poppins"}, onPostSuccess)
